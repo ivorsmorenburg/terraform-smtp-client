@@ -50,5 +50,5 @@ variable "vars" {
 #   https://github.com/wrouesnel/emailcli
 variable "mail_command" {
   description = "Command to execute"
-  default     = "modules/smtp/bin/email"
+  default     = "${path.module}/bin/email"
 }
