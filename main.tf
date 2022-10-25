@@ -10,7 +10,7 @@ data "template_file" "subject" {
 }
 
 locals {
-  body    = data.template_file.body.rendered
+  body    = sensitive(data.template_file.body.rendered)
   subject = data.template_file.subject.rendered
   command = "${var.mail_command} ${join(" ", var.to)}"
 }
