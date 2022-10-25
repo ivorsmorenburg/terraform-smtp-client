@@ -28,6 +28,7 @@ variable "username" {
 variable "password" {
   description = "Password to authenticate with the SMTP server"
   type        = string
+  sensitive = true
 }
 
 variable "host" {
