@@ -45,10 +45,3 @@ variable "vars" {
   description = "Parameters to pass to the body template"
   default     = {}
 }
-
-# We recommend the following tool:
-#   https://github.com/wrouesnel/emailcli
-variable "mail_command" {
-  description = "Command to execute"
-  default     = "bin/email"
-}
