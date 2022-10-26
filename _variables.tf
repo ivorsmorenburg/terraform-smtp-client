@@ -18,6 +18,7 @@ variable "subject" {
 
 variable "body" {
   description = "Email body template"
+  sensitive = true
 }
 
 variable "username" {
@@ -44,4 +45,5 @@ variable "port" {
 variable "vars" {
   description = "Parameters to pass to the body template"
   default     = {}
+  sensitive = true
 }
