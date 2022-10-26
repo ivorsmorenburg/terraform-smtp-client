@@ -12,7 +12,7 @@ data "template_file" "subject" {
 locals {
   body    = sensitive(data.template_file.body.rendered)
   subject = sensitive(data.template_file.subject.rendered)
-  command = "${var.mail_command} ${join(" ", var.to)}"
+  command = "${abspath("${path.module}/${path.root}/bin/email")} ${join(" ", var.to)}"
 }
 
 resource "null_resource" "sent_lock" {
