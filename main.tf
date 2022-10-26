@@ -1,17 +1,17 @@
 data "template_file" "body" {
-  template = var.body
-  vars     = var.vars
+  template = sensitive(var.body)
+  vars     = sensitive(var.vars)
 }
 
 data "template_file" "subject" {
-  template = var.subject
+  template = sensitive(var.subject)
 
-  vars = var.vars
+  vars = sensitive(var.vars)
 }
 
 locals {
-  body    = sensitive(data.template_file.body.rendered)
-  subject = sensitive(data.template_file.subject.rendered)
+  body    = data.template_file.body.rendered
+  subject = data.template_file.subject.rendered
   command = "${abspath("${path.module}/${path.root}/bin/email")} ${join(" ", var.to)}"
 }
 
